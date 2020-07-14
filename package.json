@@ -1,0 +1,42 @@
+{
+  "name": "@ronomon/quorum",
+  "version": "4.0.4",
+  "description": "",
+  "private": true,
+  "main": "index.js",
+  "files": [
+    "benchmark.js",
+    "binding.c",
+    "binding.gyp",
+    "index.js",
+    "test.js"
+  ],
+  "keywords": [
+    "brain",
+    "consensus",
+    "distributed",
+    "forked",
+    "leader",
+    "majority",
+    "order",
+    "partial",
+    "poset",
+    "quorum",
+    "set",
+    "sort",
+    "split",
+    "topological",
+    "vector"
+  ],
+  "author": "Joran Dirk Greef",
+  "scripts": {
+    "postinstall": "node-gyp clean",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "@ronomon/queue": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  }
+}
