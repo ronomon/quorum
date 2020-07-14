@@ -9,17 +9,17 @@ partially ordered subset of agreeing replicas.
 
 Unlike many majority systems, `@ronomon/quorum` does not calculate quorum by counting the number of replicas which agree exactly, or which have precisely the same state:
 
-*Strict lockstep* is inadequate even for simple failure scenarios, such as 1 out of 3 replicas offline, leaving 2 replicas online, followed by an interrupted transaction completed on only 1 of the 2 remaining replicas. In this scenario, strict lockstep would think that all replicas have diverged and would fail to find quorum. Yet this scenario is as common as a 3-drive RAID, with one drive down, and a write to the remaining drives interrupted by a power failure.
+**Strict lockstep** is inadequate even for simple failure scenarios, such as 1 out of 3 replicas offline, leaving 2 replicas online, followed by an interrupted transaction completed on only 1 of the 2 remaining replicas. In this scenario, strict lockstep would think that all replicas have diverged and would fail to find quorum. Yet this scenario is as common as a 3-drive RAID, with one drive down, and a write to the remaining drives interrupted by a power failure.
 
-*Relaxed lockstep*, on the other hand, enables replicas to lag behind the leader of a quorum, by at most one transaction, while still forming part of a quorum.
+**Relaxed lockstep**, on the other hand, enables replicas to lag behind the leader of a quorum, by at most one transaction, while still forming part of a quorum.
 
-If you imagine strict lockstep as a runner in a three-legged race:
+If you imagine **strict lockstep** as a runner in a three-legged race:
 
 * One leg can fail and be untied and left behind permanently.
 * The other two legs can continue to form a quorum.
 * However, both legs must now step forward at exactly the same time to avoid losing quorum.
 
-If you imagine relaxed lockstep as a runner in a three-legged race:
+If you imagine **relaxed lockstep** as a runner in a three-legged race:
 
 * One leg can fail and be untied and left behind permanently.
 * The other two legs can continue to form a quorum.
